@@ -157,6 +157,11 @@ a { color: #259; text-decoration: none; }
 .aw-side-bar .aw-mod dt, .aw-side-bar .aw-mod dt img { width: 40px; height: 40px; }
 .aw-side-bar .aw-mod dd .topic-tag .text { background: #fff; color: #5A7E95; font-size: 13px; }
 .aw-feed-list .aw-user-name { color: #999; }
+.advertisement{
+	padding-bottom: 20px;
+	padding-top: 10px;
+	cursor: pointer;
+}
 /* footer 全局底部代码部分 */
 .footer{padding:10px 0 20px 0;margin-top:60px;background-color: #333333;height: 180px;}
 .footer a{color:white; line-height:23px;margin-top:12px; font-size:13px;text-transform:none;text-decoration:none;}
