@@ -1,0 +1,359 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+<div class="aw-container-wrap-qa">
+<div class="zhidiu-post-topheader">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<ol class="breadcrumb">
+<li><a href="/"><?php echo addcslashes(get_setting('site_name'), "'");
+/* var_dump($this->article_info); */ 
+ ?></a></li>
+<li class="active">文章详情</li>
+</ol>
+<h1 class="h3 title"><a href="/article/<?php echo $this->article_info['id']; ?>"> <?php echo $this->article_info['title']; ?></a>
+</h1> 
+<div class="hidden-xs author">
+<?php if ($this->article_info['anonymous'] == 0) { ?>
+<a href="people/<?php echo $this->article_info['user_info']['url_token']; ?>">
+<img  class="pos-user-avtar img-circle" alt="<?php echo $this->article_info['user_info']['user_name']; ?>" src="<?php echo get_avatar_url($this->article_info['uid'], 'mid'); ?>" />
+</a>
+<a class="aw-user-name username" href="people/<?php echo $this->article_info['user_info']['url_token']; ?>"  data-id="<?php echo $this->article_info['uid']; ?>"><strong><?php echo $this->article_info['user_info']['user_name'];?></strong> </a>
+<?php if ($this->article_info['user_info']['verified']) { ?>
+<i class="icon-v<?php if ($this->article_info['user_info']['verified'] == 'enterprise') { ?> i-ve<?php } ?>" title="<?php if ($this->article_info['user_info']['verified'] == 'enterprise') { ?>企业认证<?php } else { ?>个人认证<?php } ?>">
+</i>
+<?php } ?>
+<?php } ?>
+<strong class="username"> <?php echo $this->article_info['user_info']['agree_count'];?> </strong>
+<span><?php echo date_friendly($this->article_info['add_time']); ?> <?php _e('发布');?></span>	
+<!-- 操作 -->
+<?php if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator']) { ?>
+<div class="btn-group">
+<a class="btn btn-xs btn-success dropdown-toggle" style="margin-left:15px" data-toggle="dropdown" href="javascript:;">
+<i class="glyphicon glyphicon-cog"></i>
+ <span class="caret"></span></a>
+<div class="aw-dropdown pull-right" role="menu" aria-labelledby="dropdownMenu">
+<ul class="aw-dropdown-list font-size-12">
+<LI><a href="publish/article/<?php echo $this->article_info['id']; ?>">编辑文章</a></LI>
+<li>
+<a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/article/ajax/lock/', 'article_id=<?php echo $this->article_info['id']; ?>');"><?php if ($this->article_info['lock']) { ?><?php _e('解除锁定'); ?><?php } else { ?><?php _e('锁定文章'); ?><?php } ?></a>
+</li>
+<li>
+<a href="javascript:;" onclick="AWS.dialog('confirm', {'message' : '<?php _e('确认删除?'); ?>'}, function(){AWS.ajax_request(G_BASE_URL + '/article/ajax/remove_article/', 'article_id=<?php echo $this->article_info['id']; ?>');});"><?php _e('删除文章'); ?></a>
+</li>
+ <li>
+<a href="javascript:;" onclick="AWS.ajax_request(G_BASE_URL + '/article/ajax/set_recommend/', 'action=<?php if ($this->article_info['is_recommend']) { ?>un<?php } ?>set&article_id=<?php echo $this->article_info['id']; ?>');"><?php if ($this->article_info['is_recommend']) { ?><?php _e('取消推荐'); ?><?php } else { ?><?php _e('推荐文章'); ?><?php } ?></a>
+</li>               
+</ul>
+</div>
+</div> 
+ <?php } ?>
+					
+</div>
+</div>
+<div class="col-md-3 widget-action-ver">
+<ul class="aw-question-detail list-unstyled">
+<li class="operate widget-action-ver">
+<?php if (!$this->user_id) { ?>
+<a href="account/login/"  rel="nofollow" class="btn btn-primary btn-sm">
+<span>点赞</span></a>&nbsp;&nbsp;&nbsp;&nbsp;已有<b>
+<?php echo $this->article_info['votes']; ?>
+</b>人感觉很赞
+<?php } ?>
+<?php if ($this->user_id) { ?>
+<a href="javascript:;" class="at-title agree  btn btn-normal btn-success <?php if ($this->article_info['vote_info']['rating'] == 1) { ?> active<?php } ?>"  onclick="AWS.User.article_vote($(this), <?php echo $this->article_info['id']; ?>, 1);" >
+<span><?php if($this->article_info['vote_info']['rating'] == 1) { ?>已赞<?php } else{ ?>赞<?php }?></span> <em> | </em> <b><?php echo $this->article_info['votes']; ?></b>
+</a>
+<?php } ?>                           
+</li>
+<li class="operate widget-action-ver">
+
+ &nbsp;&nbsp;<strong><?php echo $this->article_info['views']; ?></strong> 浏览
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- question topheder over -->
+
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class="col-sm-12 col-md-9 aw-main-content aw-article-content">
+ <div class="aw-mod aw-question-detail">
+                        <div class="mod-body">
+                            <div class="content markitup-box">
+                                <?php echo $this->article_info['message']; ?>
+
+                                <?php if ($this->article_info['attachs']) {  ?>
+                                <div class="aw-upload-img-list">
+                                <?php foreach ($this->article_info['attachs'] AS $attach) { ?>
+                                <?php if ($attach['is_image'] AND !in_array($attach['id'], $this->article_info['attachs_ids'])) { ?>
+                                    <a href="<?php echo $attach['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox"><img src="<?php echo $attach['attachment']; ?>" class="img-polaroid" alt="<?php echo $attach['file_name']; ?>" /></a>
+                                <?php } ?>
+                                <?php } ?>
+                                </div>
+                                <?php } ?>
+
+                                <?php if ($this->article_info['attachs']) {  ?>
+                                <ul class="aw-upload-file-list">
+                                    <?php foreach ($this->article_info['attachs'] AS $attach) { ?>
+                                    <?php if (!$attach['is_image'] AND !in_array($attach['id'], $this->article_info['attachs_ids'])) { ?>
+                                        <li><a href="<?php echo download_url($attach['file_name'], $attach['attachment']); ?>"><i class="icon icon-attach"></i> <?php echo $attach['file_name']; ?></a></li>
+                                    <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                                <?php } ?>
+                            </div>
+                   <!-- tag start -->         
+                   <div class="aw-mod aw-topic-bar" id="question_topic_editor" data-type="article" data-id="<?php echo $this->article_info['id']; ?>">
+                        <div class="tag-bar clearfix">
+                            <?php if ($this->article_topics) { ?>
+                            <?php foreach($this->article_topics as $key => $val) { ?>
+                            <span class="topic-tag" data-id="<?php echo $val['topic_id']; ?>">
+                                <a class="text" href="topic/<?php echo $val['url_token']; ?>"><?php echo $val['topic_title']; ?></a>
+                            </span>
+                            <?php } ?>
+                            <?php } ?>
+
+                            <?php if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator']) { ?><span class="icon-inverse aw-edit-topic"><i class="icon icon-edit"></i> <?php if (sizeof($this->article_topics) == 0) { ?><?php _e('添加话题')?><?php } ?></span><?php } ?>
+                        </div>
+                    </div>
+                    <!-- who is vote list  
+                    <div class="meta clearfix">
+                    
+                            </div> 
+                      -->     
+                        </div>
+                        <div class="mod-footer">
+                           <?php if ($this->article_info['vote_users']) { ?>
+                             <blockquote><STRONG>已下用户感觉此文甚赞：</STRONG></blockquote>
+                            <div class="aw-article-voter">
+                                <?php foreach ($this->article_info['vote_users'] AS $key => $val) { ?>
+                                <a href="people/<?php echo $val['url_token']; ?>" class="voter" data-toggle="tooltip" data-placement="right" data-original-title="<?php echo $val['user_name']; ?>"><img alt="<?php echo $val['user_name']; ?>" src="<?php echo get_avatar_url($val['uid'], 'mid'); ?>" /></a>
+                                <?php } ?>
+                                <!--<a class="more-voters">...</a>-->
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                    <!-- 文章评论 -->
+                    <div class="aw-mod">
+                        <div class="mod-head common-head">
+                            <h2><?php _e('%s 个评论', $this->comments_count); ?></h2>
+                        </div>
+
+                        <div class="mod-body aw-feed-list">
+                            <?php if ($this->comments) { ?>
+
+                                <?php foreach ($this->comments AS $key => $val) { ?>
+                                <div class="aw-item" id="answer_list_<?php echo $val['id']; ?>">
+                                    <div class="mod-head">
+                                        <a class="aw-user-img aw-border-radius-5" href="people/<?php echo $val['user_info']['url_token']; ?>">
+                                            <img src="<?php echo get_avatar_url($val['uid'], 'mid'); ?>" alt="<?php echo $val['user_info']['user_name']; ?>" />
+                                        </a>
+                                        <p>
+                                            <a href="people/<?php echo $val['user_info']['url_token']; ?>"><?php echo $val['user_info']['user_name']; ?></a><?php if ($val['at_user_info']) { ?> <?php _e('回复'); ?> <a href="people/<?php echo $val['at_user_info']['url_token']; ?>"><?php echo $val['at_user_info']['user_name']; ?></a><?php } ?>
+                                        </p>
+                                    </div>
+                                    <div class="mod-body">
+                                        <div class="markitup-box">
+                                            <?php echo nl2br($val['message']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="mod-footer">
+                                        <div class="meta">
+                                            <span class="pull-right text-color-999"><?php echo date_friendly($val['add_time']); ?></span>
+                                            <?php if ($this->user_id) { ?>
+                                                <a class="text-color-999 <?php if ($val['vote_info']['rating'] == 1) { ?> active<?php } ?>" onclick="AWS.User.article_comment_vote($(this), <?php echo $val['id']; ?>, 1)"><i class="icon icon-agree"></i> <?php echo $val['votes']; ?> <?php if ($val['vote_info']['rating'] == 1) { ?><?php _e('我已赞'); ?><?php } else { ?><?php _e('赞'); ?><?php } ?></a>
+                                                <a class="aw-article-comment text-color-999" data-id="<?php echo $val['user_info']['uid']; ?>"><i class="icon icon-comment"></i> <?php _e('回复'); ?></a>
+                                                <?php if ($this->user_info['permission']['is_administortar'] OR $this->user_info['permission']['is_moderator']) { ?>
+                                                <a class="text-color-999" onclick="AWS.dialog('confirm', {'message' : '<?php _e('确认删除?'); ?>'}, function(){AWS.ajax_request(G_BASE_URL + '/article/ajax/remove_comment/', 'comment_id=<?php echo $val['id']; ?>');});"><i class="icon icon-trash"></i> <?php _e('删除'); ?></a>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+
+                        <?php if ($_GET['item_id']) { ?>
+                        <div class="mod-footer">
+                                <a href="article/<?php echo $this->article_info['id']; ?>" class="aw-load-more-content">
+                                    <span><?php _e('查看全部评论'); ?></span>
+                                </a>
+                        </div>
+                        <?php } ?>
+
+                        <?php if ($this->pagination) { ?>
+                            <div class="clearfix"><?php echo $this->pagination; ?></div>
+                        <?php } ?>
+                    </div>
+                    <!-- end 文章评论 -->
+
+                    <!-- 回复编辑器 -->
+                    <div class="aw-mod aw-article-replay-box">
+                        <a name="answer_form"></a>
+                        <?php if ($this->article_info['lock']) { ?>
+                        <p align="center"><?php _e('该文章目前已经被锁定, 无法添加新评论'); ?></p>
+                        <?php } else if (!$this->user_id) { ?>
+                        <p align="center"><?php _e('要回复文章请先<a href="account/login/">登录</a>或<a href="account/register/">注册</a>'); ?></p>
+                        <?php } else { ?>
+                        <form action="article/ajax/save_comment/" onsubmit="return false;" method="post" id="answer_form">
+                        <input type="hidden" name="post_hash" value="<?php echo new_post_hash(); ?>" />
+                        <input type="hidden" name="article_id" value="<?php echo $this->article_info['id']; ?>" />
+                        <div class="mod-head">
+                            <a href="people/" class="aw-user-name"><img alt="<?php echo $this->user_info['user_name']; ?>" src="<?php echo get_avatar_url($this->user_info['uid'], 'mid'); ?>" /></a>
+                        </div>
+                        <div class="mod-body">
+                            <textarea rows="3" name="message" id="comment_editor" class="form-control autosize" placeholder="写下你的评论..."  /></textarea>
+                        </div>
+                        <div class="mod-footer clearfix">
+                            <a href="javascript:;" onclick="AWS.ajax_post($('#answer_form'), AWS.ajax_processer, 'reply');" class="btn btn-normal btn-success pull-right btn-submit btn-reply"><?php _e('回复'); ?></a>
+                            <?php if ($this->human_valid) { ?>
+                            <em class="auth-img pull-right"><img src="" onclick="this.src = G_BASE_URL + '/account/captcha/' + Math.floor(Math.random() * 10000);" id="captcha" /></em>
+                            <input class="pull-right form-control" type="text" name="seccode_verify" placeholder="<?php _e('验证码'); ?>" />
+                            <?php } ?>
+                        </div>
+                        </form>
+                        <?php } ?>
+                    </div>
+                    <!-- end 回复编辑器 -->
+                </div>
+                <!-- 侧边栏 -->
+                <div class="col-sm-12 col-md-3 aw-side-bar hidden-sm hidden-xs">
+                    <!-- 发表人 -->
+                    <?php if ($this->article_info['anonymous'] == 0 AND isset($this->reputation_topics)) { ?>
+                    <div class="aw-mod user-detail">
+                        <div class="mod-head">
+                            <h3><?php _e('作者擅长标签：'); ?></h3>
+                        </div>
+                        <div class="mod-footer clearfix">
+                            <?php if ($this->reputation_topics) { ?>
+                            <div class="aw-topic-bar">
+                                <div class="topic-bar clearfix">
+    <?php foreach ($this->reputation_topics AS $key => $val) { ?>
+                                    <span class="topic-tag">
+                                        <a href="topic/<?php echo $val['url_token']; ?>" class="text" data-id="<?php echo $val['topic_id']; ?>"><?php echo $val['topic_title']; ?></a>
+                                    </span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <!-- end 发表人 -->
+
+                    <?php if ($this->recommend_posts) { ?>
+                    <!-- 推荐内容 -->
+                    <div class="aw-mod">
+                        <div class="mod-head">
+                            <h3><?php _e('推荐内容'); ?></h3>
+                        </div>
+                        <div class="mod-body">
+                            <ul>
+                                <?php foreach($this->recommend_posts AS $key => $val) { ?>
+                                <li>
+                                    <?php if ($val['question_id']) { ?>
+                                    <a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a>
+                                    <?php } else { ?>
+                                    <a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a>
+                                    <?php } ?>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end 推荐内容 -->
+                    <?php } ?>
+                    <?php if ($this->question_related_list) { ?>
+                    <!-- 相关主题 -->
+                    <div class="aw-mod aw-text-align-justify question-related-list">
+                        <div class="mod-head">
+                            <h3><?php _e('相关主题'); ?></h3>
+                        </div>
+                        <div class="mod-body">
+                            <ul>
+                                <?php foreach($this->question_related_list AS $key => $val) { ?>
+                                <li><a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end 相关主题 -->
+                    <?php } ?>
+                    
+                    <?php if ($this->article_list) { ?>
+                    <!-- 最新文章 -->
+                    <div class="aw-mod aw-text-align-justify question-related-list">
+                        <div class="mod-head">
+                            <h3><?php _e('最新文章'); ?></h3>
+                        </div>
+                        <div class="mod-body">
+                            <ul>
+                                <?php foreach($this->article_list AS $key => $val) { ?>
+                                <li><a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end 最新文章  -->
+                    <?php } ?>
+                    
+<div class="pull-left bdshare">分享：</div>					
+<div class="pull-left more-operate">
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+<a href="#" class="bds_more" data-cmd="more"></a>
+</div>
+<script>window._bd_share_config={
+"common":{"bdSnsKey":{"tsina":"445725852","tqq":"101164190"},
+"bdText":"【<?php echo $this->article_info['title']; ?>】 分享给你，一起看吧！来自@<?php echo get_setting('site_name'); ?>",
+"bdMini":"1",
+"bdMiniList":["sqq","weixin","tqq","kaixin001","tieba","bdhome","diandian","duitang","copy"],
+"bdPic":"",
+"bdStyle":"1","bdSize":"24"},
+"share":{},
+"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],
+"viewText":"分享到：","viewSize":"16"}};
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+</div>
+                </div>
+
+                <!-- end 侧边栏 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    ANSWER_EDIT_TIME = <?php echo get_setting('answer_edit_time'); ?>;
+
+    $(document).ready(function () {
+        if ($('.aw-article-vote.disabled').length)
+        {
+            $('.aw-article-vote.disabled a').attr('onclick', '');
+        }
+
+        AWS.at_user_lists('#wmd-input');
+
+        AWS.Init.init_article_comment_box($('.aw-article-comment'));
+    });
+</script>
+<script type="text/javascript">
+$("#content-weihk-width img").each(function() { 
+var strA = "<a target='_blank' rel='lightbox' href='http://wenda.wecenter.com/" + this.src + "'></a>"; 
+$(this).wrapAll(strA); 
+
+});
+</script>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

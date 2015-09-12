@@ -1,0 +1,113 @@
+/* reset */
+ul { 
+	list-style: none; 
+}
+
+
+
+/* general */
+
+a, a img { border: none; }
+img, object, { 
+	max-width: 100%; 
+	height: auto; 
+}
+
+/* metro layout */
+.metro-layout { 
+	width: 100%; 
+	height: 55%; /*调整使得下方空白为合适大小，100%过大*/
+	font-size: 100%; 
+	font-family: 'OpenSansLight', sans-serif; 
+	line-height: 1em; 
+	-webkit-font-smoothing: antialiased; 
+	-webkit-text-size-adjust: 100%;
+	font-style: normal;
+	font:25px/25px 'Segoe UI',Arial, Helvetica, sans-serif 
+}
+.metro-layout .content { 
+	height: 80%; 
+	position: relative;
+}
+.metro-layout .content .items {
+	padding: 0 0 0 150px;/*使得metro块居中*/
+	position: relative; 
+	overflow: hidden; 
+}
+.metro-layout .box { 
+	float: left; 
+	position: relative; 
+	margin: 0.5em; 
+	padding: 0.5em; 
+	background: #555; 
+	width: 15em; 
+	height: 8em; 
+	text-decoration: none; 
+	cursor: pointer; 
+	overflow: hidden; 
+	color: #fff; 
+	background: #00a8ec; 
+	z-index: 9; 
+}
+.metro-layout .box:hover { 
+	opacity: 0.85; 
+	filter: alpha(opacity=85); 
+}
+.metro-layout .box span { 
+	position: absolute; 
+	left: 0.5em; 
+	bottom: 0.5em; 
+	font-size: 1em; 
+	font-weight: normal; 
+	z-index: 8; 
+}
+.metro-layout .box img.icon { 
+	position: absolute; 
+	left: 50%; 
+	top: 50%; 
+	margin-left: -32px; 
+	margin-top: -32px; 
+	z-index: 7; 
+}
+.metro-layout .box img.big { 
+	margin-left: -64px; 
+	margin-top: -64px; 
+}
+.metro-layout .box img.cover { 
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+	width: 100%; 
+	z-index: 6; 
+}
+.metro-layout .width2 { width: 31em; }
+.metro-layout .width3 { width: 49em; }
+.metro-layout .width4 { width: 66em; }
+.metro-layout .height2 { height: 18em; }
+.metro-layout .height3 { height: 28em; }
+.metro-layout .height4 { height: 38em; }
+
+
+::selection { 
+	background: #158ca0; 
+	color: #fff; 
+}
+::-moz-selection { 
+	background: #158ca0; 
+	color: #fff; }
+
+/* mobile support */
+@media handheld, only screen and (max-width: 1024px){
+	.metro-layout .header h1 { font-size: 2.2em; margin-top: -0.5em; left: 20px; }
+	.metro-layout .header .controls { right: 20px; }
+	.metro-layout .content .items { padding: 0 90px; }/*移动浏览器适配使metro居中*/
+}
+/* mobile support */
+@media handheld, only screen and (max-width: 480px){
+	.metro-layout .header { position: relative; text-align: center; }
+	.metro-layout .header h1 { left: 5px; font-size: 1.5em; margin-top: -0.5em; }
+	.metro-layout .header .controls { position: static; width: 100%; height: auto; margin-top: 0; }
+	.metro-layout .header .controls span { display: none !important; }
+	.metro-layout .content .items { padding: 0 5px; }
+	.vertical .content .items { padding-bottom: 0; }
+}

@@ -1,0 +1,97 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+
+<div class="aw-container-wrap">
+<?php TPL::output('block/content_nav_menu.tpl.htm'); ?>
+<div class="container">
+<div class="row">
+<div class="aw-content-wrap clearfix">
+<div class="col-sm-12 col-md-9 aw-main-content">
+<div class="aw-main-title hidden-xs">
+原创、转载，技术、文学……长篇大论随意撸！
+<a  rel="nofollow" <?php if ($this->user_id) { ?> href="publish/article/" <?php } else{?>href="account/login/"<?php } ?> class="btn btn-primary"><i class="icon icon-ask"></i><?php _e(' 发表'); ?></a>
+</div>
+<!-- tab切换 -->
+<ul class="nav nav-tabs nav-tabs-zen  hidden-xs">
+<li <?php if($_GET['act'] == 'index'){echo 'class="active"';}?> ><a href="article/"><?php _e('最新的'); ?></a></li>
+<li <?php if($_GET['act'] == 'hots'){echo 'class="active"';}?> ><a href="article/hots/"><?php _e('热门的'); ?></a></li>
+<li <?php if($_GET['act'] == 'recommend'){echo 'class="active"';}?> ><a href="article/recommend/"><?php _e('推荐的'); ?></a></li>
+</ul>
+<!-- end tab切换 --> 
+<div class="aw-mod aw-article-list">
+<?php if ($this->article_list) { ?>
+<?php foreach ($this->article_list AS $key => $val) {
+?>
+
+<div class="aw-item">
+<div class="aw-zhidiu-rank">
+<div class="aw-zhidiu-votes clearfix ">
+<?php _e('%s', $val['votes']); ?>
+<small>投票</small>
+</div>
+<div class="aw-zhidiu-views clearfix hidden-xs">
+<?php _e('%s', $val['views']); ?>
+<small>浏览</small>
+
+</div>
+ </div>
+ 
+<div class="aw-content clearfix">
+<div class="clearfix">
+<span class="more-operate text-color-999">
+<a href="people/<?php echo $val['user_info']['url_token']; ?>"> <?php echo $val['user_info']['user_name']; ?></a>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo date_friendly($val['add_time']); ?>
+<a class="text-color-999 pull-right" href="article/<?php echo $val['id']; ?>"><i class="icon icon-comment"></i> <?php _e('评论'); ?> (<?php echo $val['comments']; ?>)</a>
+</span>
+</div>
+<div class="mod-body">
+<h3><a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a></h3>
+<div class="content-wrap hidden-xs">
+<div class="content" id="detail_<?php echo $val['id']; ?>">
+<div class="hide-content markitup-box">
+<?php echo mb_substr(strip_tags(FORMAT::parse_attachs(nl2br(FORMAT::parse_markdown($val['message'])))),0,90,utf8); ?>
+</div>
+<?php if ($val['attachs']) { ?>
+<div class="aw-upload-img-list width-auto" style="margin-top:15px;">
+<?php foreach($val['attachs'] AS $attach) { ?>
+<a href="<?php echo $attach['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+<img class="img-thumbnail" style="margin-bottom:15px;" src="<?php echo $attach[thumb]; ?>" alt="<?php echo $attach['file_name']; ?>" />
+</a>
+<?php } ?>
+</div>
+<?php } ?>
+</div>
+</div>
+</div>
+</div>
+</div>
+<?php } ?>
+<?php echo $this->pagination; ?>
+<?php } ?>
+</div>
+<!-- end 文章列表 -->
+</div>
+<!-- 侧边栏 -->
+<div class="col-sm-3 col-md-3 aw-side-bar hidden-xs hidden-sm">
+<?php TPL::output('block/sidebar_menu.tpl.htm'); ?>
+<!-- 热门文章 -->
+<div class="aw-mod aw-text-align-justify">
+<div class="mod-head">
+<h3><?php _e('热门文章'); ?></h3>
+</div>
+<div class="mod-body">
+<ul>
+<?php foreach($this->hot_articles AS $key => $val) { ?>
+<li><a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a></li>
+<?php } ?>
+</ul>
+</div>
+</div>
+<!-- end 热门文章 -->
+<?php TPL::output('block/sidebar_hot_topics.tpl.htm'); ?>
+</div>
+<!-- end 侧边栏 -->
+</div>
+</div>
+</div>
+</div>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>

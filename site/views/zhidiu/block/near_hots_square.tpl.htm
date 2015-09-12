@@ -1,0 +1,20 @@
+<!-- 最近热门的-->
+<div class="aw-mod aw-text-align-justify">
+<div class="mod-head">
+<h3><?php _e('最近热门的'); ?></h3>
+</div>
+<div class="mod-body">
+<ul>
+<?php foreach($this->near_posts_list AS $key => $val) { ?>
+<li>
+<?php if ($val['question_id']) { ?>
+<a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?>
+</a>
+<?php } else { ?>
+<a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a>
+<?php } ?></li>
+<?php } ?>
+</ul>
+</div>
+</div>
+<!-- end 最近热门的 -->
