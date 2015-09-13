@@ -189,13 +189,8 @@ a { color: #259; text-decoration: none; }
    @xnile
    biaotai.me
 */
-.aw-zhidiu-rank h4 span {
-  padding: 0 5px;
-  font-size: 12px;
-  color: #fff;
-  /*background-color: #f54545;*/
-  background-color: #ff8547;
-  border-radius: 4px;
-  margin-right: 30px;
-  font-family: 'Helvetica Neue', 'STHeiti', 'Microsoft YaHei', Helvetica,Arial,sans-serif;
-}
+.sw-top-que{color: #fff;background-color: #FF001A;padding: 0px 1px;border: 1px solid #FF367E;border-radius: 2px;font-weight: 300;}
+.sw-hot-que{color: #fff;background-color: #FF669E;padding: 0px 1px;border: 1px solid #FF367E;border-radius: 2px;font-weight: 300;}
+.sw-recommend-que{color: #fff;background-color: #FF9E66;padding: 0px 1px;border: 1px solid #FF8E50;border-radius: 2px;font-weight: 300;}
+.sw-nore-que{color: #fff;background-color: #FF9E66;padding: 1px 2px;border-radius: 2px;font-weight: 300;}
+.sw-lock-que{color: #fff;background-color: #ccc;padding: 1px 2px;border-radius: 2px;font-weight: 300;}

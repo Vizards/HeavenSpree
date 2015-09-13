@@ -51,6 +51,23 @@
 			<?php } ?>
 	</p>
 		<h4>
+			<?php if ($val['is_stick']) { ?>
+    			<span class="sw-top-que">顶</span>
+    		<?php } ?>
+			<?php if ($val['is_recommend']) { ?>
+    			<span class="sw-recommend-que">荐</span>
+    		<?php } ?>
+    		<?php if ($val['view_count'] > 30) { ?>
+    			<span class="sw-hot-que">热</span>
+    		<?php } ?>
+    		<?php if ($val['views'] > 15) { ?>
+    			<span class="sw-hot-que">热</span>
+    		<?php } ?>
+    		<?php if ($val['lock']) { ?>
+    			<span class="sw-lock-que">锁</span>
+    		<?php } ?>
+    		
+			<!--以上为新增热、荐、锁定图标-->
 			<?php if ($val['question_id']) { ?>
 			<a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a>
 			
