@@ -2,7 +2,7 @@
 /* 全局样式 */
 html, body, input, button, select, textarea, h1, h2, h3, h4, h5, h6 {font:14px/1.5em, 'STXihei', Arial, Sans-serif;-webkit-font-smoothing: subpixel-antialiased; }
 .container{width:90%;}
-.mod-container{width:96%;padding-left: 2%}
+.mod-container{width:95%;padding-left:5%;}
 a { color: #259; text-decoration: none; }
 .markitup-box pre {padding: 3px;line-height: 20px;overflow: hidden; border: none; border-radius: 3px; background-color: #f7f7f7;font-size: 14px;}
 .bdshare{margin-top:10px;}
@@ -50,7 +50,7 @@ a { color: #259; text-decoration: none; }
 
 /* 首页 */
 .aw-content-wrap { border: none; padding:0 8px 10px 0px;}
-.aw-main-content {padding-left:100px; padding-right: 100px; border-right: none;padding-top: 30px;}
+.aw-main-content {padding-left:7%; padding-right: 100px; border-right: none;padding-top: 30px;}
 .aw-main-title{margin:20px 0px 26px 10px;font-size:18px;vertical-align:middle}
 .btn .btn-primary {width: 20px;}
 .aw-mod.side-nav ul li a.active, .aw-mod.side-nav ul li a:hover { background-color: #eff6fa; color: #666; }
@@ -63,7 +63,7 @@ a { color: #259; text-decoration: none; }
 .aw-load-more-content, .aw-load-more-content:hover { margin: 20px 0 0; background: #f8f8f9; background-color: #f1f1f2; background-image: -moz-linear-gradient(top, #f8f8f9, #e6e6e8); background-image: -ms-linear-gradient(top, #f8f8f9, #e6e6e8); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f9), to(#e6e6e8)); background-image: -webkit-linear-gradient(top, #f8f8f9, #e6e6e8); background-image: -o-linear-gradient(top, #f8f8f9, #e6e6e8); background-image: linear-gradient(top, #f8f8f9, #e6e6e8); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f9', endColorstr='#e6e6e8', GradientType=0); text-shadow: 0 1px 0 #fff; border: 1px solid #bbb !important; color: #666 !important; box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0, 0, 0, .1); }
 .aw-load-more-content:hover a, .aw-load-more-content:hover span { background-color: #f1f1f2; color: #666; }
 .aw-feed-list { padding: 0; }
-.aw-side-bar { padding: 124px 100px 20px 10px; }
+.aw-side-bar { padding: 124px 5% 20px 5%; }
 .common-head span .btn { color: #fff; }
 .aw-question-content h4 a {line-height:25px;color: #333333; }
 .aw-question-content h4 a:hover { text-decoration: underline; color: #333333; }
@@ -190,6 +190,9 @@ a { color: #259; text-decoration: none; }
    biaotai.me
 */
 .sw-top-que{color: #fff;background-color: #FF001A;padding: 0px 1px;border: 1px solid #FF367E;border-radius: 2px;font-weight: 300;}
+/*	增加图标
+	方式：新增
+*/
 .sw-hot-que{color: #fff;background-color: #FF669E;padding: 0px 1px;border: 1px solid #FF367E;border-radius: 2px;font-weight: 300;}
 .sw-recommend-que{color: #fff;background-color: #FF9E66;padding: 0px 1px;border: 1px solid #FF8E50;border-radius: 2px;font-weight: 300;}
 .sw-nore-que{color: #fff;background-color: #FF9E66;padding: 1px 2px;border-radius: 2px;font-weight: 300;}
