@@ -49,8 +49,8 @@
 				<?php echo date_friendly($val['add_time']); ?> <?php _e('发表了文章'); ?> 
 				</span>
 			<?php } ?>
-	</p>
-		<h4>
+		</p>
+			<h4>
 			<?php if ($val['is_stick']) { ?>
     			<span class="sw-top-que">顶</span>
     		<?php } ?>
@@ -66,8 +66,8 @@
     		<?php if ($val['lock']) { ?>
     			<span class="sw-lock-que">锁</span>
     		<?php } ?>
-    		
 			<!--以上为新增热、荐、锁定图标-->
+			
 			<?php if ($val['question_id']) { ?>
 			<a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a>
 			

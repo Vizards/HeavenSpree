@@ -48,9 +48,10 @@
     <span class="sw-recommend-que">荐</span>
     <?php } ?>
     <?php if ($val['views'] > 15) { ?>
-    <span class="sw-hot-que">热</span><?php } ?>
+    <span class="sw-hot-que">热</span>
+    <?php } ?>
     <?php if ($val['lock']) { ?>
-    <span style="color:#ccc;">锁</span>
+    <span class="sw-lock-que">锁</span>
     <?php } ?>
     <!--以上为新增热、荐、锁定图标-->
 	<a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a>

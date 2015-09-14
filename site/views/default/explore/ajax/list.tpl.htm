@@ -5,14 +5,6 @@
 	<div class="aw-question-content">
 		<h4>
 			<?php if ($val['question_id']) { ?>
-			<!-- 置顶 -->
-			<!-- 方式: 新增 -->
-			<!-- @xnile -->
-			<!-- biaotai.me -->
-			<?php if ($val['is_stick']) { ?>
-			<span>顶</span>
-			<?php } ?>
-			<!-- end 置顶 -->
 			<a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a>
 			<?php } else { ?>
 			<a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a>

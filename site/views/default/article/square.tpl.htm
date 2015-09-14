@@ -30,8 +30,17 @@
 										<div class="content" id="detail_<?php echo $val['id']; ?>">
 											<div class="hide-content markitup-box">
 												<?php echo FORMAT::parse_attachs(nl2br(FORMAT::parse_markdown($val['message']))); ?>
-											
+
 											</div>
+											<?php if ($val['attachs']) { ?>
+												<div class="aw-upload-img-list width-auto" style="margin-top:15px;">
+												<?php foreach($val['attachs'] AS $attach) { ?>
+												<a href="<?php echo $attach['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+												<img class="img-thumbnail" style="margin-bottom:15px;" src="<?php echo $attach[thumb]; ?>" alt="<?php echo $attach['file_name']; ?>" />
+													</a>
+													<?php } ?>
+													</div>
+													<?php } ?>
 
 											<?php if (cjk_strlen($val['message']) > 130) { ?>
 								        	<a class="more" href="#" onclick="AWS.content_switcher($('#detail_<?php echo $val['id']; ?>'), $('#detail_more_<?php echo $val['id']; ?>')); return false;"><?php _e('继续阅读'); ?> »</a>

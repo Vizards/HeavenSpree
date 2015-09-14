@@ -1,0 +1,11 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<urlset>
+	<?php foreach($this->list as $key => $val){ ?>
+    <url>
+        <loc><?php echo get_js_url('/question/' . $val['question_id']); ?></loc>
+        <lastmod><?php echo date('Y-m-d', $val['add_time']); ?></lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+	<?php } ?>
+</urlset>

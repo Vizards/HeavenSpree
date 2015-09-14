@@ -188,7 +188,7 @@ var AW_TEMPLATE = {
 								'<div>'+
 									'<textarea class="form-control" placeholder="' + _t('写下你的主题') + '..." rows="1" name="question_content" id="quick_publish_question_content" onkeydown="if (event.keyCode == 13) { return false; }"></textarea>'+
 									'<div class="aw-publish-suggest-question hide">'+
-										'<p class="text-color-999">你的主题可能已经有答案</p>'+
+										'<p class="text-color-999">关注</p>'+
 										'<ul class="aw-dropdown-list">'+
 										'</ul>'+
 									'</div>'+

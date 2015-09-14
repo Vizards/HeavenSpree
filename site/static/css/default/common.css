@@ -59,9 +59,9 @@ table td{vertical-align: middle !important;}
 
 .aw-HeavenSpree{margin:0 auto;}/*兼容2.5*/
 .aw-padding10{padding:10px;}
-.aw-content-wrap{margin:0 0;background-color: #fff;border:1px solid #e6e6e6;border-radius:4px;}
+.aw-content-wrap{margin:0 15px;background-color: #fff;border:1px solid #e6e6e6;border-radius:4px;}
 .aw-main-content{padding:0 0 20px;border-right:1px solid #e6e6e6;}
-.aw-side-bar{margin-left:-1px;border-left: 1px solid #e6e6e6;padding:20px;margin-right:10;}
+.aw-side-bar{margin-left:-1px;padding:20px;border-left: 1px solid #e6e6e6;}
 .aw-mod .mod-head h4, .aw-mod .mod-head h4 a{font-size:14px;}
 .aw-back-top{position:fixed;display:none;padding:0 5px;right:20px;bottom:20px;background-color: #d9d9d9;border-radius: 3px;}
 .aw-back-top .icon-up{display:block;padding:10px;color: #a6a6a6;font-size: 20px;}
@@ -238,7 +238,7 @@ a.aw-load-more-content{display: block;}
 /* 分类 */
 .category{margin-bottom: 20px;}
 .category dl, .category dl dt, .category dl dd{float:left;}
-.category dl{position:relative;margin:10px 20px 10px 0;padding:15px;}
+.category dl{position:relative;margin:10px 15px 10px 0;padding:15px;}
 .category dl:hover .aw-dropdown, .category ul li:hover .aw-dropdown, .category dl .aw-dropdown ul li a{display:block;}
 .category dl:hover, .category .col-sm-12 > .active{background: #ebebeb;}
 .category dl dt, .category dl dt img{width: 50px;height: 50px;}

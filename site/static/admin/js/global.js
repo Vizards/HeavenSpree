@@ -115,7 +115,7 @@ $(function () {
         }
     });
 
-    // 微博提问用户删除
+    // 微博发布用户删除
     $(document).on('click', '.aw-admin-weibo-publish .delete', function()
     {
         $('.aw-admin-weibo-publish').find('.search-input').val('').show();

@@ -1,8 +1,8 @@
-<body style="overflow:scroll;overflow:hidden">
+<body>
     <video style="width:100%" autoplay muted loop>
         <source src="bg.mp4" type="" media="">
     </video>
-<?php TPL::output('global/header_meta.tpl.htm'); ?> 
+<?php TPL::output('global/header.tpl.htm'); ?>
 <div class="aw-register-box container">
 <div class="content">
     <div class="mod-head clearfix" >
@@ -26,7 +26,7 @@
                 <li>
                     <input class="aw-register-pwd form-control" type="password" name="password" placeholder="输入密码" tips="<?php _e('请输入 6-16 个字符,区分大小写'); ?>" errortips="<?php _e('密码不符合规则'); ?>" />
                 </li>
-                <li class="aw-register-verify">
+                <li>
                     <a href="#" class="pull-right">获取邀请码?</a>
                     <input type="text" class="form-control" name="the_weixin_register_invitcode" placeholder="<?php _e('邀请码'); ?>" />
                 </li>

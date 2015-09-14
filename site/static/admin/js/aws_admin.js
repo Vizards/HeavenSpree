@@ -867,7 +867,7 @@ AWS.Dropdown =
 	                    });
 	                	break;
 
-	                // 后台微博提问用户
+	                // 后台微博发布用户
 	                case 'adminPublishUser' :
 	                	$.each(result, function (i, a)
 	                    {
@@ -920,7 +920,7 @@ AWS.Dropdown =
 	                    });
 	                	break;
 
-	                //后台置邮件内容对应提问用户
+	                //后台置邮件内容对应发布用户
 		                case 'adminEmailUser' :
 		                	$.each(result, function (i, a)
 		                    {

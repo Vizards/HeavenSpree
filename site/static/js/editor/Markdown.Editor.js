@@ -1192,7 +1192,7 @@
             if (title == '插入图片')
             {
                 var tips = doc.createElement('p');
-                tips.innerHTML = '如需要插入本地图片, 请用编辑器下面上传附件功能上传后再插入!';
+                tips.innerHTML = '因服务器空间过小，暂时关闭图片上传。建议使用图床:<a href="https://sm.ms" target="_blank">SM.MS</a>';
                 form.appendChild(tips);
             }
             else if (title == '插入视频')

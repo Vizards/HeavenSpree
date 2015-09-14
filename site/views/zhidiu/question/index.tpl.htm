@@ -665,12 +665,5 @@ with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElemen
 </script>
 
 <script type="text/javascript" src="<?php echo G_STATIC_URL; ?>/js/app/question_detail.js"></script>
-<script type="text/javascript">
-	$("#content-weihk-width img").each(function() { 
-var strA = "<a target='_blank' rel='lightbox' href='http://wenda.wecenter.com/" + this.src + "'></a>"; 
-$(this).wrapAll(strA); 
-
-});
-</script>
 
 <?php TPL::output('global/footer.tpl.htm'); ?>

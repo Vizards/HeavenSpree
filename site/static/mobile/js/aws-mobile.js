@@ -489,7 +489,7 @@ AWS.User =
 		selector.parents('.aw-comment-box li').fadeOut();
 	},
 
-	// 主题喜爱
+	// 主题关注
 	question_thanks: function (selector, question_id)
 	{
 	    $.post(G_BASE_URL + '/question/ajax/question_thanks/', 'question_id=' + question_id, function (result)
@@ -500,16 +500,16 @@ AWS.User =
 	        }
 	        else if (result.rsm.action == 'add')
 	        {
-	            selector.html(selector.html().replace(_t('喜爱'), _t('已喜爱'))).removeAttr('onclick');
+	            selector.html(selector.html().replace(_t('关注'), _t('已关注'))).removeAttr('onclick');
 	        }
 	        else
 	        {
-	            selector.html(selector.html().replace(_t('已喜爱'), _t('喜爱')));
+	            selector.html(selector.html().replace(_t('已关注'), _t('关注')));
 	        }
 	    }, 'json');
 	},
 
-	// 喜爱回复者
+	// 关注回复者
 	answer_user_rate: function (selector, type, answer_id)
 	{
 	    $.post(G_BASE_URL + '/question/ajax/question_answer_rate/', 'type=' + type + '&answer_id=' + answer_id, function (result)
@@ -525,11 +525,11 @@ AWS.User =
 		            case 'thanks':
 		                if (result.rsm.action == 'add')
 		                {
-		                    selector.html(selector.html().replace(_t('喜爱'), _t('已喜爱'))).removeAttr('onclick');
+		                    selector.html(selector.html().replace(_t('关注'), _t('已关注'))).removeAttr('onclick');
 		                }
 		                else
 		                {
-		                    selector.html(selector.html().replace(_t('已喜爱'), _t('喜爱')));
+		                    selector.html(selector.html().replace(_t('已关注'), _t('关注')));
 		                }
 		                break;
 

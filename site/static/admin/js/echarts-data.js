@@ -255,7 +255,7 @@ Echarts.prototype = {
         for (var i = 0; i < param.length; i++) {
             switch (param[i]) {
             case 'new_answer':
-                arr.push('新增答案');
+                arr.push('新增回复');
                 break;
 
             case 'new_question':
@@ -279,7 +279,7 @@ Echarts.prototype = {
                 break;
 
             case 'new_answer_thanks':
-                arr.push('新增回复喜爱');
+                arr.push('新增回复关注');
                 break;
 
             case 'new_favorite_item':
@@ -287,7 +287,7 @@ Echarts.prototype = {
                 break;
 
             case 'new_question_thanks':
-                arr.push('新增主题喜爱');
+                arr.push('新增主题关注');
                 break;
 
             case 'new_question_redirect':
