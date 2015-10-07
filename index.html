@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>狂魔天堂 官方论坛</title>
+<link rel="shortcut icon" href="img_nav/favicon.ico">
+<link href="_css/nav.css" rel="stylesheet" type="text/css" /><!--导航栏css-->
+<link href="_css/metro.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="_css/flow.css">
+<link rel="stylesheet" href="_css/footer.css">
+<link href="_css/timeline.css"  rel="stylesheet" type="text/css" />
+
+
+<!--*******************************以下是unslider效果jquery补全内容**********************************-->
+<style>
+	.banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+    .banner ul li { float: left; }
+
+   	.banner {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+
+    color: rgba(255,255,255,.6);
+    text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
+
+    background: #5b4d3d;
+    box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+    
+    .banner ul li {
+        display: block;
+        float: left;
+        width: 33%;
+        min-height: 350px;
+
+        -o-background-size: 100% 100%;
+        -ms-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+
+        box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+    }
+
+	.banner .dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+    }
+	.banner .dots li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+
+            text-indent: -999em;
+
+            border: 2px solid #fff;
+            border-radius: 6px;
+
+            cursor: pointer;
+            opacity: .4;
+
+            -webkit-transition: background .5s, opacity .5s;
+            -moz-transition: background .5s, opacity .5s;
+            transition: background .5s, opacity .5s;
+        }
+	.banner .dots li.active {
+                background: #fff;
+                opacity: 1;
+            }
+    
+    * {
+		margin: 0;
+		padding: 0;
+
+		-webkit-font-smoothing: antialiased;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+
+
+</style>
+<!--********************************unslider效果jquery补全内容结束**********************************-->
+
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script><!--jquery1.9.1-->
+<script src="_js/unslider.js"></script><!--unslider轮播jquery插件-->
+<script type="text/javascript" src="_js/modernizr.js" ></script>
+</head>
+
+<!--unslider效果javascript控制（要求加载在body前）-->
+<script>
+	$(function() {
+    	$('.banner').unslider({
+    		speed: 500,               //  The speed to animate each slide (in milliseconds)
+			delay: 2000,              //  The delay between slide animations (in milliseconds)
+			keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+			dots: true,               //  Display dot navigation
+			fluid: true             //  Support responsive design. May break non-responsive designs
+    });//end unslider(图片轮播插件)	
+});
+</script>
+<!--unslider效果javascript结束（要求加载在body前）-->
+
+<!--使移动设备隐藏底部友情链接-->
+<script type="text/javascript">
+$(function(){
+    var pm_width=$(document.body).width();
+    var width=$("#zheli").width();
+    if(pm_width < width){
+        $("#xianshi").css("display","none");
+    }
+});
+</script>
+<!--使移动设备隐藏底部友情链接结束-->
+<!--时光轴开始-->
+<script>
+$(function(){
+    var $timeline_block = $('.cd-timeline-block');
+    //hide timeline blocks which are outside the viewport
+    $timeline_block.each(function(){
+        if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+            $(this).find('.cd-timeline-img, .cd-timeline-content').addClass('is-hidden');
+        }
+    });
+    //on scolling, show/animate timeline blocks when enter the viewport
+    $(window).on('scroll', function(){
+        $timeline_block.each(function(){
+            if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+                $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+            }
+        });
+    });
+});
+</script>
+<!--时光轴结束-->
+
+<body>
+<div style="background-color: #00A2CA" class="header">
+    <a href="#">
+    <img src="img_header/header1.png" alt="狂魔天堂官方论坛" width="100%" height="100%">
+    </a>
+</div>
+
+<!--简单导航栏无jquery效果-->
+
+<div class="simple-nav" id="simple-nav">
+<ul id="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="/site/">论坛</a></li>
+    <li><a href="site/?/people/">会员中心</a></li>
+    <li><a href="http://flowmine.tk">联系开发者</a></li>
+    <li><a href="timeline/index.html">时光轴</a></li>
+    <li><a href="/site/?/account/login/">登录</a></li>
+</ul>
+</div>
+
+<!--首页图片轮播配合unslider插件-->
+<div class="banner">
+	<ul>
+        <!--picheight：500px-->
+        <li><img src="img_slider/shop.jpg" width="100%" height="500px"></li>
+        <li><img src="img_slider/subway.jpg" width="100%" height="500px"></li>
+        <li><img src="img_slider/sunset.jpg" width="100%" height="500px"></li>
+    </ul>
+</div>
+<!--首页图片轮播（配合unslider插件）结束-->
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="metro-layout">
+<div class="content">
+        <div class="items">
+            <a class="box" href="#"><span>Mail</span><img class="icon" src="img_metro/mail.png" /></a>
+            <a class="box" href="#" style="background: #6b6b6b;"><span>Settings</span><img class="icon" src="img_metro/settings.png" /></a>
+            <a class="box" href="#" style="background: #43b51f;"><span>Make a call</span><img class="icon" src="img_metro/phone.png" /></a>
+            <a class="box" href="#" style="background: #00aeef;"><span>Music</span><img class="icon" src="img_metro/music.png" /></a>
+            <a class="box width2" href="#" style="background: #f58d00;"><span>Firefox</span><img class="icon" src="img_metro/firefox.png" /></a>
+            <a class="box" href="#" style="background: #640f6c;"><span>Yahoo</span><img class="icon" src="img_metro/yahoo.png" /></a>
+            <a class="box" href="#" style="background: #d32c2c;"><span>Gmail</span><img class="icon big" src="img_metro/gmail.png" /></a>
+        </div>
+</div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<section id="cd-timeline" class="cd-container">
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="cd-icon-picture.svg" alt="Picture">
+            </div><!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 1</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Jan 14</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-movie">
+                <img src="cd-icon-movie.svg" tppabs="http://www.17sucai.com/preview/1/2015-03-17/html5%E5%93%8D%E5%BA%94%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BD%B4%E9%A1%B5%E9%9D%A2/images/cd-icon-movie.svg" alt="Movie">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 2</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Jan 18</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="cd-icon-picture.svg" tppabs="http://www.17sucai.com/preview/1/2015-03-17/html5%E5%93%8D%E5%BA%94%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BD%B4%E9%A1%B5%E9%9D%A2/images/cd-icon-picture.svg" alt="Picture">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 3</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Jan 24</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-location">
+                <img src="cd-icon-location.svg" tppabs="http://www.17sucai.com/preview/1/2015-03-17/html5%E5%93%8D%E5%BA%94%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BD%B4%E9%A1%B5%E9%9D%A2/images/cd-icon-location.svg" alt="Location">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 4</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Feb 14</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-location">
+                <img src="cd-icon-location.svg" tppabs="http://www.17sucai.com/preview/1/2015-03-17/html5%E5%93%8D%E5%BA%94%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BD%B4%E9%A1%B5%E9%9D%A2/images/cd-icon-location.svg" alt="Location">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 5</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Feb 18</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-movie">
+                <img src="cd-icon-movie.svg" tppabs="http://www.17sucai.com/preview/1/2015-03-17/html5%E5%93%8D%E5%BA%94%E5%BC%8F%E6%97%B6%E9%97%B4%E8%BD%B4%E9%A1%B5%E9%9D%A2/images/cd-icon-movie.svg" alt="Movie">
+            </div> <!-- cd-timeline-img -->
+
+            <div class="cd-timeline-content">
+                <h2>17素材网 6</h2>
+                <p>17素材网专注于提供免费素材下载,其内容涵盖设计素材,PSD素材,矢量素材,图片素材,图标素材,设计字体等免费素材.下载免费素材尽在17素材网免费素材网</p>
+                <a href="javascript:if(confirm('http://www.sucaijiayuan.com/  \n\n???ļ??޷??? Teleport Ultra ????, ??Ϊ ????һ??????·???ⲿ??????Ϊ??????ʼ??ַ?ĵ?ַ??  \n\n?????ڷ??????ϴ??????'))window.location='http://www.sucaijiayuan.com/'" tppabs="http://www.sucaijiayuan.com/" class="cd-read-more">阅读更多</a>
+                <span class="cd-date">Feb 26</span>
+            </div> <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+    </section> <!-- cd-timeline -->
+    
+
+
+<br/>
+<br/>
+<br/>
+<!--S footer-->
+<div id='zheli' style="width:1025px;"></div>
+<div class="newfoot" >
+    <div class="qmaps" id='xianshi' style="display: block">
+        <div class="plats">
+            <h3>论坛已经对如下设备优化</h3>
+            <a class="plmb" pgv="im.index2015.maps.mobile">Phone</a>
+            <a class="plpc" pgv="im.index2015.maps.pc">PC</a>
+            <a class="plmac" pgv="im.index2015.maps.mac">Mac</a>
+            <a class="plpad" pgv="im.index2015.maps.pad">Pad</a>
+        </div>
+
+        <!-- <div class="map qac">
+            <h3>动态</h3>
+            <ul>
+                <li><a pgv="im.index2015.maps.zhuanshu" href="#" target="_blank">精品专属</a></li>
+                <li><a pgv="im.index2015.maps.zixun" href="#" target="_blank">热门资讯</a></li>
+                <li><a pgv="im.index2015.maps.fengmian" href="#" target="_blank">封面</a></li>
+                <li><a pgv="im.index2015.maps.licheng" href="#" target="_blank">版本历程</a></li>
+                <li><a pgv="im.index2015.maps.blog" href="#" target="_blank">产品博客</a></li>
+            </ul>
+        </div> -->
+
+        <div class="map qac">
+            <h3>欢迎访问</h3>
+            <ul>
+                <li><a pgv="im.index2015.maps.anquan" href="http://flowmine.tk" target="_blank">FlowMine</a></li>
+                <li><a pgv="im.index2015.maps.dongjie" href="http://dusign.tk" target="_blank">Zimu云签站</a></li>
+                <li><a pgv="im.index2015.maps.jubao" href="http://aq.qq.com/v2/safe_school/report_index.shtml" target="_blank"></a></li>
+                <li><a pgv="im.index2015.maps.huifu" href="http://huifu.qq.com/" target="_blank"></a></li>
+            </ul>
+        </div>
+
+        <div class="map qfaq">
+            <h3>与我们联系</h3>
+            <ul>
+                <li><a pgv="im.index2015.maps.kefu" href="http://tieba.baidu.com/f?kw=%E7%8B%82%E9%AD%94%E5%A4%A9%E5%A0%82" target="_blank">百度贴吧</a></li>
+                <li><a pgv="im.index2015.maps.fankui" href="http://weibo.com/5674828380/profile?topnav=1&wvr=6" target="_blank">新浪微博</a></li>
+                <li><a pgv="im.index2015.maps.txweibo" href="mailto:admin@kuangmo.org" target="_blank">Email</a></li>
+                <li><a pgv="im.index2015.maps.sinaweibo" href="http://weibo.com/u/2508053484" target="_blank"></a></li>
+            </ul>
+        </div>
+
+        <div class="map qlink">
+            <h3>友情链接</h3>
+            <ul>
+                <li><a pgv="im.index2015.maps.buluo" href="http://www.kuangmotiantang.com" target="_blank">BraVPN</a></li>
+                <li><a pgv="im.index2015.maps.qun" href="http://www.jisxu.ml/" target="_blank">絮絮de小窝</a></li>
+                <li><a pgv="im.index2015.maps.yinyue" href="http://www.kenapp.com/" target="_blank">啃应用</a></li>
+                <li><a pgv="im.index2015.maps.browser" href="http://www.google.cn/chrome/browser/desktop/index.html" target="_blank">Chrome</a></li>
+                <li><a pgv="im.index2015.maps.laidian" href="http://mcool.appinn.me/" target="_blank">Mcool</a></li>
+                <li><a pgv="im.index2015.maps.shipin" href="#" target="_blank"></a></li>
+                <li><a pgv="im.index2015.maps.tiyan" href="#" target="_blank"></a></li>
+                <li><a pgv="im.index2015.maps.guanjia" href="#" target="_blank"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright &copy; <script>document.write((new Date()).getFullYear());</script> HeavenSpree. All Rights Reserved.</p>
+        <p>狂魔天堂 版权所有</p>
+    </div>
+</div>
+<!--E footer-->
+
+<!--下面这段代码可以使导航栏漂浮在页面顶端，由于显示效果不佳，故弃用
+
+<script type="text/javascript">
+ 
+window.onscroll = function(){
+    var ht=document.documentElement.scrollTop || document.body.scrollTop; 
+    if(ht>433){$("#nav").css({"position":"fixed","top":"0px","z-index":"9999"});}
+    else{$("#nav").css({"position":"static"});}
+    }
+</script>
+-->
+
+</body>
+
+</html>

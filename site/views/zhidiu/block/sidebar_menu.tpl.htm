@@ -1,0 +1,26 @@
+<?php if(!$this->user_id){ ?>
+<?php  $return_url = 'return_url-' . base64_encode('http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]); ?>
+<aside class="widget-welcome">
+<h2 class="h4 title">欢迎加入 狂魔天堂</h2>
+<p>知之为知之，不知为不知，是知也。如果你不知这个论坛是干什么的，你可以来这里吹牛打屁。如果你知道，请静静地装逼。
+</p>
+<ul class="list-unstyled">
+<li><a rel="nofollow" href="account/openid/qq_login/<?php if($_GET['app'] !== 'explore') {echo $return_url; }?>" class="btn btn-danger btn-block btn-qq"><span class="icon icon-qq"></span> 使用QQ登录</a></li>
+<li><a rel="nofollow" href="account/openid/sina/<?php if($_GET['app'] !== 'explore') {echo $return_url; }?>" class="btn btn-info btn-block btn-qq"><span class="icon icon-weibo"></span> 使用微博登录</a></li>
+</ul>
+</aside>
+<?php } ?>
+<?php if($this->user_id){ ?>
+<div class="aw-mod side-nav">
+	<div class="mod-body">
+		<ul>
+           <li><a href="home/#all" rel="all"><i class="icon icon-home"></i><?php _e('我关注的动态'); ?></a></li>
+			<li><a href="home/#draft_list__draft" rel="draft_list__draft"><i class="icon icon-draft"></i><?php _e('我的草稿'); ?><?php if ($this->user_info['draft_count']) { ?><span class="badge"><?php echo $this->user_info['draft_count']; ?></span><?php } ?></a></li>
+			<li><a href="favorite/"<?php if ($_GET['app'] == 'favorite') { ?> class="active"<?php } ?>><i class="icon icon-favor"></i><?php _e('我的收藏'); ?></a></li>
+			<li><a href="home/#all__focus" rel="all__focus"><i class="icon icon-check"></i><?php _e('我关注的主题'); ?></a></li>
+			<li><a href="home/#invite_list__invite" rel="invite_list__invite"><i class="icon icon-invite"></i><?php _e('邀请我回复的主题'); ?><?php if ($this->user_info['invite_count']) { ?><span class="badge"><?php echo $this->user_info['invite_count']; ?></span><?php } ?></a></li>
+				<li><a href="invitation/"<?php if ($_GET['app'] == 'invite') { ?> class="active"<?php } ?>><i class="icon icon-inviteask"></i><?php _e('邀请好友加入'); ?> <?php if ($this->user_info['invitation_available']) { ?><em class="badge"><?php echo $this->user_info['invitation_available']; ?></em><?php } ?></a></li>
+		</ul>
+	</div>
+</div>
+<?php } ?>

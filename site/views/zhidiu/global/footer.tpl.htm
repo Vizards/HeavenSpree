@@ -1,0 +1,66 @@
+<footer class="footer"> 
+ <div class="container">
+ <div class="row">  
+ <div class="col-sm-8">       
+ <div class="col-sm-12">
+ <h6 class="footer-logo"></h6>
+ <p class="hidden-xs hidden-sm">
+ <b><A href="<?php echo base_url();?>"><?php get_setting('site_name'); ?></A></b> 
+狂魔天堂 官方论坛</p>
+<div class="row">
+<div class="col-sm-12">
+<p><a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">鄂ICP备14006604号</a>
+ <A href="/">Copyright  &copy; 2015 
+ <?php echo HeavenSpree; ?>
+ </A>
+</p>
+</div></div>
+</div>
+</div> 
+<div class="col-sm-1 hidden-xs hidden-sm">               
+<h4><x><strong>欢迎访问</strong></x></h4>   
+<p><a href="https://zimu.ml" target="_blank" rel="nofollow">FlowMine</a>   
+</p><p>                  
+</p>                 
+<p><a href="http://www.jisxu.ml" target="_blank" rel="nofollow">絮絮de小窝</a></p>
+<p><a href="http://www.kuangmotiantang.com" target="_blank" >BraVPN</a></p>
+<p><a href="http://music.163.com/#/playlist?id=20360984" target="_blank">姨妈的歌单</a></p>     
+</div> 
+<div class="col-sm-1 hidden-xs hidden-sm">   
+<h4><x><b>联系我们</b></x></h4>
+<p><a href="http://tieba.baidu.com/%E7%8B%82%E9%AD%94%E5%A4%A9%E5%A0%82" target="_blank" rel="nofollow">百度贴吧</a></p> 
+<p><a href="http://weibo.com/5674828380/profile?topnav=1&wvr=6" target="_blank" rel="nofollow">新浪微博</a></p>
+<p><a href="mailto:admin@kuangmo.org" target="_blank" rel="nofollow">Email</a></p>          
+</div>          
+
+<div class="col-sm-1 hidden-xs hidden-sm">
+<div class="wechat_logo"></div> 
+<div class="qq_group">
+	<a>&nbsp;&nbsp;&nbsp;扫描二维码</a><br/>
+	<a>&nbsp;&nbsp;&nbsp;&nbsp;关注我们</a>
+</div> 
+</div>  
+</div>
+</div>
+<?php if (is_mobile(true)) { ?>
+<div class="container">
+<div class="row">
+<p align="center"><?php _e('版本切换'); ?>: <b><?php _e('PC 版'); ?></b> | <a href="m<?php echo $_SERVER["REQUEST_URI"];?>"><?php _e('手机版'); ?></a></p>
+</div>
+</div>
+<?php } ?>
+</footer>
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
+<?php echo get_setting('statistic_code'); ?>
+
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/<?php echo time(); ?>%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+<?php TPL::output('global/debuger.tpl.htm'); ?>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="org.eclipse.datatools.common.doc.user:1.10.2.v201209181447-26-311A16321A3557"/>
+		<item value="org.eclipse.datatools.connectivity.feature:1.10.2.v201209181447-7C7h9DEt1bxqP9criVgb9XdVJxM"/>
+		<item value="org.eclipse.datatools.connectivity.oda.feature:1.10.2.v201209181447-7H7C7XCcNBHNEZEnCaQf"/>
+		<item value="org.eclipse.datatools.doc.user:1.10.2.v201209181447-47C08w95FFAK89FHEC7"/>
+		<item value="org.eclipse.datatools.enablement.mysql.feature:1.10.2.v201209181447-5478AkF7AK8X9JCREG"/>
+		<item value="org.eclipse.datatools.modelbase.feature:1.10.2.v201209181447-7707GCcNBHLDaKTEcRi"/>
+		<item value="org.eclipse.datatools.sqldevtools.ddlgen.feature:1.10.2.v201209181447-7A-7DF7RZHQUMdThK5_t"/>
+		<item value="org.eclipse.datatools.sqldevtools.feature:1.10.2.v201209181447-7N8B7WFDri4ohCyg6O43UgSwbFm0"/>
+		<item value="org.eclipse.datatools.sqldevtools.parsers.feature:1.10.2.v201209181447-623BgJ9EE9ZJRDZLA"/>
+		<item value="org.eclipse.dltk.core.index:5.0.0.201306112303"/>
+		<item value="org.eclipse.dltk.core:5.0.0.201306112303"/>
+		<item value="org.eclipse.draw2d:3.9.0.201212170307"/>
+		<item value="org.eclipse.emf.codegen.ecore.ui:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.codegen.ecore:2.8.2.v20130125-0826"/>
+		<item value="org.eclipse.emf.codegen.ui:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.codegen:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.common.ui:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.common:2.8.0.v20130125-0546"/>
+		<item value="org.eclipse.emf.converter:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.databinding.edit:1.2.1.v20130125-0826"/>
+		<item value="org.eclipse.emf.databinding:1.2.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.ecore.edit:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.ecore.editor:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.ecore:2.8.3.v20130125-0546"/>
+		<item value="org.eclipse.emf.edit.ui:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.edit:2.8.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.mapping.ecore.editor:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.mapping.ecore:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.mapping.ui:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf.mapping:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.emf:2.8.3.v20130125-0826"/>
+		<item value="org.eclipse.gef:3.9.0.201212170307"/>
+		<item value="org.eclipse.help:1.4.1.v20120912-145617-8R7xFOXFLWUl7PpMEeZNIGkb4"/>
+		<item value="org.eclipse.platform:3.8.1.v20130118-180812-9jF7oIBFG8eU2pim-VbIlTuQjY0RWWK3x-bv4I"/>
+		<item value="org.eclipse.rcp:3.8.2.v20130118-180157-96BuGOZFxwOAeG8Ofmqicz0tPK"/>
+		<item value="org.eclipse.rse.core:3.4.1.201302122026"/>
+		<item value="org.eclipse.rse.ftp:3.1.0.201302062102"/>
+		<item value="org.eclipse.rse.ssh:3.0.400.201205062159"/>
+		<item value="org.eclipse.wst.common.fproj:3.4.0.v201202292300-377F8N8s735555393B7B"/>
+		<item value="org.eclipse.wst.jsdt.feature:1.4.1.v201208171701-7H7DFg0FC7sReqSyfqesWi"/>
+		<item value="org.eclipse.wst.web_ui.feature:3.4.2.v201211061806-7O7MFu3EMkBK01NbrfU9ATE5cdZFz-OoeYjaI4d2"/>
+		<item value="org.eclipse.wst.xml_ui.feature:3.4.2.v201211061806-7H7GFeJDxumUrsn5qkiQgOEhsz0p60HAmPyU6VX"/>
+		<item value="org.eclipse.xsd.edit:2.7.0.v20130125-0826"/>
+		<item value="org.eclipse.xsd:2.8.1.v20130125-0826"/>
+		<item value="org.zend.php.common:1.0.0.201306211118-7C-0773593F75555J"/>
+		<item value="org.zend.usagedata:1.0.0.201306052147-4--7B58E5N5KB8HQ"/>
+	</list>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="338" key="DIALOG_Y_ORIGIN"/>
+		<item value="651" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="com.zend.php.ide.ui.project.wizard.localphp" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.php.project.ui"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,87 @@
+<?php TPL::output('global/header.tpl.htm'); ?>
+
+<div class="aw-container-wrap">
+	<?php TPL::output('block/content_nav_menu.tpl.htm'); ?>
+
+	<div class="container">
+		<div class="row">
+			<div class="aw-content-wrap clearfix">
+				<div class="col-sm-12 col-md-8 aw-main-content">
+					<!-- 新消息通知 -->
+					<div class="aw-mod aw-notification-box hide" id="index_notification">
+						<div class="mod-head common-head">
+							<h2>
+								<span class="pull-right"><a href="account/setting/privacy/#notifications" class="text-color-999"><i class="icon icon-setting"></i> <?php _e('通知设置'); ?></a></span>
+								<i class="icon icon-bell"></i><?php _e('新通知'); ?><em class="badge badge-important" name="notification_unread_num"><?php echo $this->user_info['notification_unread']; ?></em>
+							</h2>
+						</div>
+						<div class="mod-body">
+							<ul id="notification_list"></ul>
+						</div>
+						<div class="mod-footer clearfix">
+							<a href="javascript:;" onclick="AWS.Message.read_notification(false, 0, false);" class="pull-left btn btn-mini btn-gray"><?php _e('我知道了'); ?></a>
+							<a href="notifications/" class="pull-right btn btn-mini btn-success"><?php _e('查看所有'); ?></a>
+						</div>
+					</div>
+					<!-- end 新消息通知 -->
+					<div class="aw-main-title hidden-xs">
+                                           发帖，开始装逼！
+                    <a  rel="nofollow" <?php if ($this->user_id) { ?> href="publish/" <?php } else{?>href="account/login/"<?php } ?> class="btn btn-primary"><i class="icon icon-ask"></i><?php _e(' 发表'); ?></a>
+                </div>
+					<!-- tab切换 -->
+					<ul class="nav nav-tabs nav-tabs-zen  hidden-xs">
+						<li<?php if ((!$_GET['sort_type'] OR $_GET['sort_type'] == 'new') AND !$_GET['is_recommend']) { ?> class="active"<?php } ?>><a href="/"><?php _e('最新的'); ?></a></li>
+						<li<?php if ($_GET['sort_type'] == 'hot') { ?> class="active"<?php } ?>><a href="question/<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>category-<?php echo $this->category_info['id']; ?>__sort_type-hot" id="sort_control_hot"><?php _e('热门的'); ?></a></li>
+						<li<?php if ($_GET['sort_type'] == 'unresponsive') { ?> class="active"<?php } ?>><a href="question/<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>category-<?php echo $this->category_info['id']; ?>__sort_type-unresponsive"><?php _e('等待回复'); ?></a></li>
+					</ul>
+					<!-- end tab切换 -->
+
+					<?php if ($_GET['sort_type'] == 'hot') { ?>
+					<!-- 自定义tab切换 -->
+					<div class="aw-tabs">
+						<ul>
+							<li<?php if ($_GET['day'] == 30) { ?> class="active"<?php } ?>><a href="question/<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>sort_type-hot__<?php if ($this->category_info['id']) { ?>__category-<?php echo $this->category_info['id']; ?><?php } ?>__day-30" day="30"><?php _e('30天'); ?></a></li>
+						  	<li<?php if ($_GET['day'] == 7) { ?> class="active"<?php } ?>><a href="question/<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>sort_type-hot__<?php if ($this->category_info['id']) { ?>__category-<?php echo $this->category_info['id']; ?><?php } ?>__day-7" day="7"><?php _e('7天'); ?></a></li>
+						  	<li<?php if ($_GET['day'] == 1) { ?> class="active"<?php } ?>><a href="question/<?php if ($this->feature_info) { ?>feature_id-<?php echo $this->feature_info['id']; ?>__<?php } ?>sort_type-hot__<?php if ($this->category_info['id']) { ?>__category-<?php echo $this->category_info['id']; ?><?php } ?>__day-1" day="1"><?php _e('当天'); ?></a></li>
+						</ul>
+					</div>
+					<!-- end 自定义tab切换 -->
+					<?php } ?>
+
+					<div class="aw-mod aw-explore-list">
+						<div class="mod-body">
+							<div class="aw-common-list">
+								<?php echo $this->posts_list_bit; ?>
+							</div>
+						</div>
+						<div class="text-center">
+                                            <ul class="pager">
+                            <li>以上是部分更新，你还可以查看</li>
+                            <li><a href="question/" rel="nofollow">全部主题</a></li>
+                            <li>或者</li>
+                            <li><a href="question/sort_type-hot__day-30" rel="nofollow">热门主题</a></li>
+                            <li>列表</li>
+                        </ul>
+                                    </div>
+					</div>
+				</div>
+
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-4 aw-side-bar hidden-xs hidden-sm">
+			   <?php TPL::output('block/sidebar_menu.tpl.htm'); ?>
+			      <?php TPL::output('block/sidebar_hot_topics.tpl.htm'); ?>
+			      <!-- 可能感兴趣的人/或话题 -->
+				<?php TPL::output('block/sidebar_recommend_users_topics.tpl.htm'); ?>
+				  <?php TPL::output('block/sidebar_feature.tpl.htm'); ?>
+				  <!-- 最近所有的热门主题 or 文章 -->
+				<?php TPL::output('block/near_hots_square.tpl.htm'); ?>
+				<?php TPL::output('block/sidebar_hot_users.tpl.htm'); ?>
+				<?php TPL::output('block/sidebar_ad.tpl.htm'); ?>						
+				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>
