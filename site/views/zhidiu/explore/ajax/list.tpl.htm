@@ -1,0 +1,91 @@
+<?php if ($this->posts_list) { ?>
+<?php foreach($this->posts_list as $key => $val) { ?>
+<div class="aw-item <?php if ($val['question_id']) { ?><?php if ($val['answer_count'] == 0) { ?>active<?php } ?><?php } else {?>active<?php } ?>" data-topic-id="<?php foreach ($val['topics'] AS $k => $v) { ?><?php echo $v['topic_id']; ?>,<?php } ?>">
+     <div class="aw-zhidiu-rank">
+     <?php if ($val['question_id']) { ?>
+            <div class="aw-zhidiu-votes hidden-xs">
+               <?php _e('%s', $val['focus_count']); ?>
+               <small>关注</small>
+            </div>
+            <div class="aw-zhidiu-answers">
+               <?php _e('%s', $val['answer_count']); ?>
+               <small>回复</small>
+            </div>
+            <div class="aw-zhidiu-views hidden-xs">
+                <?php _e('%s', $val['view_count']); ?>
+                <small>浏览</small>
+            </div>
+            	<?php } else { ?>
+            	  <div class="aw-zhidiu-votes hidden-xs">
+                 <?php _e('%s', $val['votes']); ?>
+                <small>投票</small>
+            </div>
+            <div class="aw-zhidiu-answers">
+               <?php _e('%s', $val['comments']); ?>
+               <small>回复</small>
+            </div>
+            <div class="aw-zhidiu-views hidden-xs">
+                <?php _e('%s', $val['views']); ?>
+                <small>浏览</small>
+            </div>
+            		<?php } ?>
+    </div>
+	<div class="aw-question-content">
+	<p>
+			<?php if ($val['question_id']) { ?>
+			<?php if ($val['answer_count'] > 0) { ?>
+			<?php if ($val['answer_info']['anonymous']) { ?>
+				<a href="javascript:;" class="aw-user-name"><?php _e('匿名用户'); ?></a><?php } else { ?><a href="people/<?php echo $val['answer_info']['user_info']['url_token']; ?>" class="aw-user-name" data-id="<?php echo $val['answer_info']['user_info']['uid']; ?>"><?php echo $val['answer_info']['user_info']['user_name']; ?></a><?php } ?> 
+				<span class="text-color-999"><?php echo date_friendly($val['update_time']); ?> <?php _e('回复主题'); ?>
+				</span>
+			<?php } else { ?>
+			<?php if ($val['anonymous'] == 0) { ?>
+				<a href="people/<?php echo $val['user_info']['url_token']; ?>" class="aw-user-name" data-id="<?php echo $val['user_info']['uid']; ?>"><?php echo $val['user_info']['user_name']; ?></a><?php } else { ?><a href="javascript:;" class="aw-user-name" data-id="<?php echo $val['uid']; ?>"><?php _e('匿名用户'); ?></a><?php } ?> 
+				<span class="text-color-999"><?php echo date_friendly($val['add_time']); ?> <?php _e('发表主题'); ?> 
+				</span>
+			<?php } ?>
+			<?php } else { ?>
+				<a href="people/<?php echo $val['user_info']['url_token']; ?>" class="aw-user-name" data-id="<?php echo $val['user_info']['uid']; ?>"><?php echo $val['user_info']['user_name']; ?></a> <span class="text-color-999"> 
+				<?php echo date_friendly($val['add_time']); ?> <?php _e('发表了文章'); ?> 
+				</span>
+			<?php } ?>
+		</p>
+			<h4>
+			<?php if ($val['is_stick']) { ?>
+    			<span class="sw-top-que">顶</span>
+    		<?php } ?>
+			<?php if ($val['is_recommend']) { ?>
+    			<span class="sw-recommend-que">荐</span>
+    		<?php } ?>
+    		<?php if ($val['view_count'] > 30) { ?>
+    			<span class="sw-hot-que">热</span>
+    		<?php } ?>
+    		<?php if ($val['views'] > 15) { ?>
+    			<span class="sw-hot-que">热</span>
+    		<?php } ?>
+    		<?php if ($val['lock']) { ?>
+    			<span class="sw-lock-que">锁</span>
+    		<?php } ?>
+			<!--以上为新增热、荐、锁定图标-->
+			
+			<?php if ($val['question_id']) { ?>
+			<a href="question/<?php echo $val['question_id']; ?>"><?php echo $val['question_content']; ?></a>
+			
+			<?php } else { ?>
+			<a href="article/<?php echo $val['id']; ?>"><?php echo $val['title']; ?></a>
+			<?php } ?>
+		</h4>
+		<?php if ($val['attachs']) { ?>
+		<div class="aw-upload-img-list width-auto" style="margin-top:15px;margin-left: 0px;">
+			<?php foreach($val['attachs'] AS $attach) { ?>
+			<a href="<?php echo $attach['attachment']; ?>" target="_blank" data-fancybox-group="thumb" rel="lightbox">
+				<img class="img-thumbnail" style="margin-bottom:15px;" src="<?php echo $attach[thumb]; ?>" alt="<?php echo $attach['file_name']; ?>" />
+			</a>
+		<?php } ?>
+		</div>
+		<?php } ?>
+		
+	</div>
+</div>
+<?php } ?>
+<?php } ?>

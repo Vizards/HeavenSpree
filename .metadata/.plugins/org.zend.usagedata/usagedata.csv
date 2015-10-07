@@ -1,0 +1,14 @@
+monitorId,attribute1,attribute2,attribute3,attribute4,time
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.window.preferences",1438596282319
+org.zend.contentAssistMonitor,echo,false,echo,"1333",1438596334767
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.window.preferences",1438596467166
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.window.preferences",1438596650912
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.edit.text.showInformation",1438596774906
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.edit.text.showInformation",1438596778198
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.file.save",1438596854162
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.window.preferences",1438648453086
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.edit.undo",1438648485936
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.file.save",1438648488535
+org.zend.contentAssistMonitor,echo,false,echo,"2041",1438648505321
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.file.save",1438648524127
+org.zend.commandUsageMonitor,executed,org.eclipse.php.editor,,"org.eclipse.ui.file.save",1438655575155
